@@ -10,7 +10,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><jsp:invoke fragment="header"/></title>
+    <title>
+        <jsp:invoke fragment="header"/>
+    </title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,34 +24,38 @@
         <a class="navbar-brand" href="index.jsp">
             <img src="${pageContext.request.contextPath}/images/olskercupcakes.png" width="100%" class="img-fluid"/></a>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
-                <div class="navbar-nav" style="float: ">
-                    <a class="nav-item nav-link" style="width:70px" href="${pageContext.request.contextPath}/">Kunder</a>
-                    <a class="nav-item nav-link" style="width:70px" href="${pageContext.request.contextPath}/">Ordrer</a>
-                    <a class="nav-item nav-link" style="width:70px" href="${pageContext.request.contextPath}/"></a>
-                    <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" style="float: right" href="${pageContext.request.contextPath}/login.jsp">Login</a>
-                    </c:if>
-                    <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" style="float: right" href="${pageContext.request.contextPath}/logout">Log out</a>
-                        <button type="button" class="ui-icon-cart" style="float:right">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>Indkøbskurv
-                        </button>
-                    </c:if>
-                </div>
-            </div>
+    <div class="topnav">
+        <a class="active" href="${pageContext.request.contextPath}/">Hjem</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Cupcakes</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Om os</a>
+        <%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
+        <%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
+        <%--                <span class="navbar-toggler-icon"></span>--%>
+        <%--            </button>--%>
+        <div class="topnav-right">
+            <c:if test="${sessionScope.user == null }">
+
+                <a class="nav-item nav-link" style="float: left" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+            </c:if>
+            <c:if test="${sessionScope.user != null }">
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Kunder</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Ordrer</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Indkøbskurv</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Log out</a>
+                <%--                <button type="button" class="ui-icon-cart" style="float:right">--%>
+                <%--                    <span class="glyphicon glyphicon-shopping-cart"></span>Indkøbskurv--%>
+                <%--                </button>--%>
+            </c:if>
         </div>
-    </nav>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        </div>
+    </div>
 </header>
 
 <div id="body" class="container mt-4" style="min-height: 400px;">
-    <h1><jsp:invoke fragment="header"/></h1>
+    <h1>
+        <jsp:invoke fragment="header"/>
+    </h1>
     <jsp:doBody/>
 </div>
 
@@ -62,7 +68,8 @@
             2800 Lyngby
         </div>
         <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
+            <jsp:invoke fragment="footer"/>
+            <br/>
             <p>&copy; 2022 Cphbusiness</p>
         </div>
         <div class="col">
@@ -70,8 +77,6 @@
             2. semester efterår 2022
         </div>
     </div>
-
-</div>
 
 </div>
 
