@@ -27,7 +27,7 @@
     <div class="topnav">
         <a class="active" href="${pageContext.request.contextPath}/">Hjem</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Cupcakes</a>
-        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Om os</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/about.jsp">Om os</a>
         <%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
         <%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
         <%--                <span class="navbar-toggler-icon"></span>--%>
