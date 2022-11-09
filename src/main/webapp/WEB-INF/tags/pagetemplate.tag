@@ -38,14 +38,18 @@
                 <a class="nav-item nav-link" style="float: left" href="${pageContext.request.contextPath}/login.jsp">Login</a>
             </c:if>
             <c:if test="${sessionScope.user != null }">
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/kunde.jsp">Kunder</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/kunde.jsp">Kunde</a>
                 <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/ordrer.jsp">Ordrer</a>
                 <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/cart.jsp">Indkøbskurv</a>
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Log out</a>
                 <%--                <button type="button" class="ui-icon-cart" style="float:right">--%>
                 <%--                    <span class="glyphicon glyphicon-shopping-cart"></span>Indkøbskurv--%>
                 <%--                </button>--%>
+                <c:if test="${sessionScope.user.role == 'admin' }">
+                    <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Admin</a>
+                </c:if>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Log out</a>
             </c:if>
+
         </div>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
         </div>

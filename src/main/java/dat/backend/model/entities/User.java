@@ -4,15 +4,29 @@ import java.util.Objects;
 
 public class User
 {
+    private int userid;
     private String username;
     private String password;
     private String role;
+    private int balance;
 
     public User(String username, String password, String role)
     {
+        this.userid = userid;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.balance = balance;
+    }
+
+    public int getUserid()
+    {
+        return userid;
+    }
+
+    public void setUserid(int userid)
+    {
+        this.userid = userid;
     }
 
     public String getUsername()
@@ -45,29 +59,24 @@ public class User
         this.role = role;
     }
 
-    @Override
-    public boolean equals(Object o)
+    public int getBalance()
     {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return getUsername().equals(user.getUsername()) && getPassword().equals(user.getPassword()) &&
-                getRole().equals(user.getRole());
+        return balance;
+    }
+
+    public void setBalance(int balance)
+    {
+        this.balance = balance;
     }
 
     @Override
-    public int hashCode()
-    {
-        return Objects.hash(getUsername(), getPassword(), getRole());
-    }
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" +
-                "brugerNavn='" + username + '\'' +
-                ", kodeord='" + password + '\'' +
-                ", rolle='" + role + '\'' +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", balance=" + balance +
                 '}';
     }
 }
