@@ -25,5 +25,15 @@
             <input type="submit"  value="Log in"/>
         </form>
 
+        <h3>Ny bruger? Opret dig her!</h3>
+
+        <form action="login" method="post">
+            <label for="username">Username: </label>
+            <input type="text" id="newusername" name="newusername"/>
+            <label for="password">Password: </label>
+            <input type="password" id="newpassword" name="newpassword"/>
+            <input type="submit"  value="Log in"/>
+        </form>
+
     </jsp:body>
 </t:pagetemplate>

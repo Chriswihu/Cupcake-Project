@@ -26,7 +26,7 @@
     </div>
     <div class="topnav">
         <a class="active" href="${pageContext.request.contextPath}/">Hjem</a>
-        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Cupcakes</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/cupcakes.jsp">Cupcakes</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/about.jsp">Om os</a>
         <%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
         <%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
@@ -38,9 +38,9 @@
                 <a class="nav-item nav-link" style="float: left" href="${pageContext.request.contextPath}/login.jsp">Login</a>
             </c:if>
             <c:if test="${sessionScope.user != null }">
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Kunder</a>
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Ordrer</a>
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Indkøbskurv</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/kunde.jsp">Kunder</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/ordrer.jsp">Ordrer</a>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/cart.jsp">Indkøbskurv</a>
                 <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Log out</a>
                 <%--                <button type="button" class="ui-icon-cart" style="float:right">--%>
                 <%--                    <span class="glyphicon glyphicon-shopping-cart"></span>Indkøbskurv--%>
