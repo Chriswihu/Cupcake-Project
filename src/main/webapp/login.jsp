@@ -24,7 +24,7 @@
             <input type="password" id="password" name="password"/>
             <input type="submit"  value="Log in"/>
         </form>
-
+<br/>
         <h3>Ny bruger? Opret dig her!</h3>
 
         <form action="login" method="post">

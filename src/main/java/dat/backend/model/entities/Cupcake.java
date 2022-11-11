@@ -2,22 +2,22 @@ package dat.backend.model.entities;
 
 public class Cupcake
 {
-    private Top top;
-    private Bottom bottom;
+    private Top topId;
+    private Bottom bottomId;
     private int quantity;
 
     public Cupcake(Top top, Bottom bottom, int quantity) {
-        this.top = top;
-        this.bottom = bottom;
+        this.topId = top;
+        this.bottomId = bottom;
         this.quantity = quantity;
     }
 
-    public Top getTop() {
-        return top;
+    public Top getTopId() {
+        return topId;
     }
 
-    public Bottom getBottom() {
-        return bottom;
+    public Bottom getBottomId() {
+        return bottomId;
     }
 
     public int getQuantity() {
@@ -27,8 +27,8 @@ public class Cupcake
     @Override
     public String toString() {
         return "Cupcake{" +
-                "top=" + top +
-                ", bottom=" + bottom +
+                "top=" + topId +
+                ", bottom=" + bottomId +
                 ", quantity=" + quantity +
                 '}';
     }

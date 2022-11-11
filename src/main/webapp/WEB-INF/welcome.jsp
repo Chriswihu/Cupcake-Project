@@ -5,7 +5,7 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Køb Cupcakes!
+         Du er logget ind!
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -14,33 +14,37 @@
 
     <jsp:body>
 
-        <h3>Køb cupcakes!</h3>
+<%--        <h3>Køb cupcakes!</h3>--%>
 
-        <form action="addtocart" method="post">
-            <select name="bottom">
-                <option value="1">Chocolate (5kr)</option>
-                <option value="2">Vanilla (6kr)</option>
-            </select>
-            <select name="top">
-                <option value="1">Chocolate (5kr)</option>
-                <option value="2">Vanilla (6kr)</option>
-            </select>
-            <select name="quantity">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <button name="addToCart">Tilføj til Kurv</button>
-        </form>
+<%--        <form action="addtocart" method="post">--%>
+<%--            <select name="bottom">--%>
+<%--                <c:forEach var="bottom" items="${requestScope.bottomList}">--%>
+<%--                    <option value="${bottom.id}">${bottom.name} (${bottom.price},-)</option>--%>
+<%--                </c:forEach>--%>
+<%--            </select>--%>
+<%--            <select name="top">--%>
+<%--                <c:forEach var="top" items="${requestScope.topList}">--%>
+<%--                    <option value="${top.id}">${top.name} (${top.price},-)</option>--%>
+<%--                </c:forEach>--%>
+<%--            </select>--%>
+<%--            <select name="quantity">--%>
+<%--                <option value="1">1</option>--%>
+<%--                <option value="2">2</option>--%>
+<%--                <option value="3">3</option>--%>
+<%--                <option value="4">4</option>--%>
+<%--                <option value="5">5</option>--%>
+<%--                <option value="6">10</option>--%>
+<%--            </select>--%>
+<%--            <button name="addToCart">Tilføj til Kurv</button>--%>
+<%--        </form>--%>
 
-        <h2>Antal linier i kurven: ${requestScope.cartsize}</h2>
+<%--        <h2>Antal linier i kurven: ${requestScope.cartsize}</h2>--%>
 
-        <h2>Indhold i kurven:</h2>
+<%--        <h2>Indhold i kurven:</h2>--%>
 
-        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-            TopId: ${item.topId} BottomId: ${item.bottomId} Antal: ${item.quantity} <br/>
-        </c:forEach>
+<%--        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">--%>
+<%--            TopId: ${item.topId.name} BottomId: ${item.bottomId.name} Antal: ${item.quantity} <br/>--%>
+<%--        </c:forEach>--%>
 
     </jsp:body>
 
