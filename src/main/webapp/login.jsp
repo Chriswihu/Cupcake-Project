@@ -27,12 +27,12 @@
 <br/>
         <h3>Ny bruger? Opret dig her!</h3>
 
-        <form action="login" method="post">
+        <form action="createuser" method="post">
             <label for="username">Username: </label>
             <input type="text" id="newusername" name="newusername"/>
             <label for="password">Password: </label>
             <input type="password" id="newpassword" name="newpassword"/>
-            <input type="submit"  value="Log in"/>
+            <input type="submit"  value="Opret din Konto!"/>
         </form>
 
     </jsp:body>

@@ -25,34 +25,75 @@
             <img src="${pageContext.request.contextPath}/images/olskercupcakes.png" width="100%" class="img-fluid"/></a>
     </div>
     <div class="topnav">
-        <a class="active" href="${pageContext.request.contextPath}/">Hjem</a>
+        <a class="active" href="${pageContext.request.contextPath}/index.jsp">Hjem</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/cupcakes.jsp">Cupcakes</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/about.jsp">Om os</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/order.jsp">Bestil Cupcakes!</a>
-        <%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
-        <%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
-        <%--                <span class="navbar-toggler-icon"></span>--%>
-        <%--            </button>--%>
+
         <div class="topnav-right">
             <c:if test="${sessionScope.user == null }">
 
                 <a class="nav-item nav-link" style="float: left" href="${pageContext.request.contextPath}/login.jsp">Login</a>
             </c:if>
             <c:if test="${sessionScope.user != null }">
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/kunde.jsp">Kunde</a>
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/history.jsp">Ordrer</a>
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/cart.jsp">Indkøbskurv</a>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/kunde.jsp">Kunde</a>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/history.jsp">Ordrer</a>
+                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/cart.jsp">Indkøbskurv</a>
                 <%--                <button type="button" class="ui-icon-cart" style="float:right">--%>
                 <%--                    <span class="glyphicon glyphicon-shopping-cart"></span>Indkøbskurv--%>
                 <%--                </button>--%>
                 <c:if test="${sessionScope.user.role == 'admin' }">
-                    <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/">Admin</a>
+                    <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Admin</a>
                 </c:if>
-                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Log out</a>
-            </c:if>
+                <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Logout ${sessionScope.user.username}@mail.com</a>
 
-        </div>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+
+                <%--                <a class="nav-item dropdown topnav-right">--%>
+                <%--                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"--%>
+                <%--                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
+                <%--                        Dropdown--%>
+
+                <%--                    </button>--%>
+
+                <%--                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">--%>
+                <%--                        <a href="#">Link 1</a>--%>
+                <%--                        <a href="#">Link 2</a>--%>
+                <%--                        <a href="#">Link 3</a>--%>
+                <%--                    </div>--%>
+                <%--                </a>--%>
+            </c:if>
+            <%--        </div>--%>
+            <%--        <div class="container-fluid">--%>
+            <%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"--%>
+            <%--                    data-bs-target="#navbarNavAltMarkup"--%>
+            <%--                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">--%>
+            <%--                <span class="navbar-toggler-icon"></span>--%>
+            <%--            </button>--%>
+            <%--            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">--%>
+            <%--                <ul class="navbar-nav ml-auto">--%>
+            <%--                    <li class="nav-item">--%>
+            <%--                        <a class="nav-link" href="#">Link</a>--%>
+            <%--                    </li>--%>
+            <%--                    <li class="nav-item dropdown">--%>
+            <%--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"--%>
+            <%--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+            <%--                            Dropdown--%>
+            <%--                        </a>--%>
+            <%--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">--%>
+            <%--                            <a class="dropdown-item" href="#">Action</a>--%>
+            <%--                            <a class="dropdown-item" href="#">Another action</a>--%>
+            <%--                            <div class="dropdown-divider"></div>--%>
+            <%--                            <a class="dropdown-item" href="#">Something else here</a>--%>
+            <%--                        </div>--%>
+            <%--                    </li>--%>
+            <%--                    <li class="nav-item">--%>
+            <%--                        <a class="nav-link" href="#">Link</a>--%>
+            <%--                    </li>--%>
+            <%--                </ul>--%>
+            <%--            </div>--%>
+            <%--        </div>--%>
+            <%--        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">--%>
+            <%--        </div>--%>
         </div>
     </div>
 </header>

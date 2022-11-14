@@ -74,38 +74,39 @@ public class CupcakeMapper
         return null;
     }
 
-    static List<Top> getTops(ConnectionPool connectionPool) throws SQLException {
-        String sql = "SELECT * FROM top ORDER BY topid";
-
+    static List<Top> getTops(ConnectionPool connectionPool) throws SQLException
+    {
         List<Top> topList = new ArrayList<>();
+
+        String sql = "SELECT * FROM top ORDER BY topid";
 
         try(Connection connection = connectionPool.getConnection())
         {
             try(PreparedStatement ps = connection.prepareStatement(sql))
             {
-                ResultSet result = ps.executeQuery();
-
-                while (result.next())
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
                 {
-                    int id = result.getInt("topid");
-                    String name = result.getString("type");
-                    int price = result.getInt("price");
+                    int id = rs.getInt("topid");
+                    String name = rs.getString("type");
+                    int price = rs.getInt("price");
 
-                    Top top = new Top(id, name, price);
+                    Top newTop = new Top(id, name, price);
 
-                    topList.add(top);
+                    topList.add(newTop);
                 }
             }
             catch (SQLException ex) {
                 ex.printStackTrace();
-                throw ex;
             }
+        }catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return topList;
     }
 
     static List<Bottom> getBottoms(ConnectionPool connectionPool) throws SQLException {
-        String sql = "SELECT * FROM bottom ORDER BY bottomid";
+        String sql = "SELECT * FROM bottom";
 
         List<Bottom> bottomList = new ArrayList<>();
 
@@ -128,9 +129,13 @@ public class CupcakeMapper
             }
             catch (SQLException ex) {
                 ex.printStackTrace();
-                throw ex;
+
             }
+        }catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return bottomList;
     }
+
+
 }

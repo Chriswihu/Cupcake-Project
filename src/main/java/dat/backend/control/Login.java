@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "login", urlPatterns = {"/login"} )
@@ -56,8 +57,15 @@ public class Login extends HttpServlet
             session.setAttribute("user", user); // adding user object to session scope
             Cart cart = new Cart();
             session.setAttribute("cart", cart);
+//
+//            List<Top> topList = CupcakeFacade.getTops(connectionPool);
+//            session.setAttribute("topList", topList);
+//            List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
+//            session.setAttribute("bottomList", bottomList);
 
-            AddToCart.listMaker(request, response, connectionPool);
+            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+
+//            AddToCart.listMaker(request, response, connectionPool);
         }
         catch (DatabaseException e)
         {
@@ -65,5 +73,4 @@ public class Login extends HttpServlet
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
-
 }

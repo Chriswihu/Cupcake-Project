@@ -43,15 +43,14 @@ class UserMapper
     static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException
     {
         Logger.getLogger("web").log(Level.INFO, "");
-        User user;
-        String sql = "insert into user (username, password, role) values (?,?,?)";
+        User user = null;
+        String sql = "insert into user (username, password) values (?,?)";
         try (Connection connection = connectionPool.getConnection())
         {
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
                 ps.setString(1, username);
                 ps.setString(2, password);
-                ps.setString(3, role);
                 int rowsAffected = ps.executeUpdate();
                 if (rowsAffected == 1)
                 {
@@ -61,11 +60,13 @@ class UserMapper
                     throw new DatabaseException("The user with username = " + username + " could not be inserted into the database");
                 }
             }
+
         }
         catch (SQLException ex)
         {
             throw new DatabaseException(ex, "Could not insert username into database");
         }
+        login(username, password, connectionPool);
         return user;
     }
 
