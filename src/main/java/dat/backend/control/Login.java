@@ -57,20 +57,19 @@ public class Login extends HttpServlet
             session.setAttribute("user", user); // adding user object to session scope
             Cart cart = new Cart();
             session.setAttribute("cart", cart);
-//
-//            List<Top> topList = CupcakeFacade.getTops(connectionPool);
-//            session.setAttribute("topList", topList);
-//            List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
-//            session.setAttribute("bottomList", bottomList);
 
-            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+            List<Top> topList = CupcakeFacade.getTops(connectionPool);
+            List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
 
-//            AddToCart.listMaker(request, response, connectionPool);
+            session.setAttribute("topList", topList);
+            session.setAttribute("bottomList", bottomList);
+
+            request.getRequestDispatcher("WEB-INF/cupcakes.jsp").forward(request, response);
         }
-        catch (DatabaseException e)
+        catch (DatabaseException | SQLException e)
         {
             request.setAttribute("errormessage", e.getMessage());
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+//            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 }

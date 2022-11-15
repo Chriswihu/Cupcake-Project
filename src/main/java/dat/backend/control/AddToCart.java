@@ -17,13 +17,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "addtocart", value = "/addtocart")
-public class AddToCart extends HttpServlet {
-    private static ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
+public class AddToCart extends HttpServlet
+{
+    private static ConnectionPool connectionPool;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public  void init() throws ServletException
+    {
+        this.connectionPool = ApplicationStart.getConnectionPool();
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        HttpSession session = request.getSession();
 
+        List<Top> topList;
+        List<Bottom> bottomList;
+        try {
+            topList = CupcakeFacade.getTops(connectionPool);
+            bottomList = CupcakeFacade.getBottoms(connectionPool);
+
+            session.setAttribute("topList", topList);
+            session.setAttribute("bottomList", bottomList);
+
+            request.getRequestDispatcher("cupcakes.jsp").forward(request,response);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 //    public static void listMaker(HttpServletRequest request, HttpServletResponse response, ConnectionPool connectionPool) throws ServletException, IOException {
 //        try {
 //            List<Top> topList = CupcakeFacade.getTops(connectionPool);
@@ -41,43 +63,25 @@ public class AddToCart extends HttpServlet {
 //    }
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-
-        User user =(User) session.getAttribute("user");
+        Cart cart = (Cart) session.getAttribute("cart");
 
         int topId = Integer.parseInt(request.getParameter("top"));
         int bottomId = Integer.parseInt(request.getParameter("bottom"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-        try {
+        Top top = CupcakeFacade.getTopById(topId, connectionPool);
+        Bottom bottom = CupcakeFacade.getBottomById(bottomId, connectionPool);
+        session = request.getSession();
 
-            Top top = CupcakeFacade.getTopById(topId, connectionPool);
-            Bottom bottom = CupcakeFacade.getBottomById(bottomId, connectionPool);
-            session = request.getSession();
+        Cupcake cupcake = new Cupcake(top, bottom, quantity);
+        cart.add(cupcake);
+        session.setAttribute("cart", cart);
+        session.setAttribute("cartsize", cart.getNumberOfCupcakes());
 
-
-            Cart cart = new Cart();
-            Cupcake cupcake = new Cupcake(top, bottom, quantity);
-            cart.add(cupcake);
-            session.setAttribute("cart", cart);
-            request.setAttribute("cartsize", cart.getNumberOfCupcakes());
-
-            List<Top> topList = CupcakeFacade.getTops(connectionPool);
-            request.setAttribute("topList", topList);
-
-            List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
-            request.setAttribute("bottomList", bottomList);
-
-            request.getRequestDispatcher("order.jsp").forward(request, response);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-//        request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+        request.getRequestDispatcher("order.jsp").forward(request, response);
     }
 }

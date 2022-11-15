@@ -26,4 +26,9 @@ public class Cart
     {
         return cupcakeList;
     }
+
+    public void resetCart()
+    {
+       cupcakeList.clear();
+    }
 }

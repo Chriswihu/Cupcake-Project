@@ -1,7 +1,9 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Bottom;
+import dat.backend.model.entities.Cart;
 import dat.backend.model.entities.Top;
+import dat.backend.model.entities.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -24,5 +26,13 @@ public class CupcakeFacade
 
     public static List<Bottom> getBottoms(ConnectionPool connectionPool) throws SQLException {
         return CupcakeMapper.getBottoms(connectionPool);
+    }
+
+    public static int createOrder(User user, ConnectionPool connectionPool) {
+        return CupcakeMapper.createrOrder(user, connectionPool);
+    }
+
+    public static void addToOrderLine(int orderId, Cart cart, ConnectionPool connectionPool) throws SQLException {
+        CupcakeMapper.addToOrderLine(orderId, cart, connectionPool);
     }
 }

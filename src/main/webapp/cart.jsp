@@ -9,12 +9,14 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        Indkøbskurv
     </jsp:attribute>
 
     <jsp:body>
 
         <h3>Her kan du se din indkøbskurv!</h3>
+
+        <form method="get"></form>
 
     </jsp:body>
 

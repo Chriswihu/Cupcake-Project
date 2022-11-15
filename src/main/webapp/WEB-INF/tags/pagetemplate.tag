@@ -26,7 +26,7 @@
     </div>
     <div class="topnav">
         <a class="active" href="${pageContext.request.contextPath}/index.jsp">Hjem</a>
-        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/cupcakes.jsp">Cupcakes</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/WEB-INF/cupcakes.jsp">Cupcakes</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/about.jsp">Om os</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/order.jsp">Bestil Cupcakes!</a>
 

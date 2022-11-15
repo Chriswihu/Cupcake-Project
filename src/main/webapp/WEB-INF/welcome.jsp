@@ -15,7 +15,7 @@
     <jsp:body>
 
         <h2>Welcome ${sessionScope.user.username}, your role is ${sessionScope.user.role}</h2>
-        <h3>Køb cupcakes!</h3>
+        <p>Køb cupcakes!<a href="webapp/order"></a> Bestil</p>
 
 <%--        <form method="post">--%>
 <%--            <form action="addtocart" method="post">--%>
@@ -44,9 +44,7 @@
 
 <%--            <h2>Indhold i kurven:</h2>--%>
 <%--        </form>--%>
-        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-            TopId: ${item.topId.name} BottomId: ${item.bottomId.name} Antal: ${item.quantity} <br/>
-        </c:forEach>
+
 
     </jsp:body>
 
