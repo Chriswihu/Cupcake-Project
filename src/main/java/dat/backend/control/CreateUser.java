@@ -29,15 +29,15 @@ public class CreateUser extends HttpServlet
 
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        session.setAttribute("newuser", null); // invalidating user object in session scope
+        session.setAttribute("user", null); // invalidating user object in session scope
         String newusername = request.getParameter("newusername");
         String newpassword = request.getParameter("newpassword");
 
 
         try {
-            User newUser = UserFacade.createUser(newusername, newpassword, "user", connectionPool);
+            User user = UserFacade.createUser(newusername, newpassword, "user", connectionPool);
             session = request.getSession();
-            session.setAttribute("user", newUser);
+            session.setAttribute("user", user);
 
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
 

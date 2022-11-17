@@ -24,7 +24,7 @@ public class AddToCart extends HttpServlet
     @Override
     public  void init() throws ServletException
     {
-        this.connectionPool = ApplicationStart.getConnectionPool();
+        connectionPool = ApplicationStart.getConnectionPool();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -75,12 +75,27 @@ public class AddToCart extends HttpServlet
 
         Top top = CupcakeFacade.getTopById(topId, connectionPool);
         Bottom bottom = CupcakeFacade.getBottomById(bottomId, connectionPool);
-        session = request.getSession();
 
         Cupcake cupcake = new Cupcake(top, bottom, quantity);
         cart.add(cupcake);
+        int Sum = 0;
+
+        session.setAttribute("Sum", Sum);
         session.setAttribute("cart", cart);
         session.setAttribute("cartsize", cart.getNumberOfCupcakes());
+
+//        try {
+//            session = request.getSession();
+//            List<Top> topList = CupcakeFacade.getTops(connectionPool);
+//            List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
+//
+//            session.setAttribute("topList", topList);
+//            session.setAttribute("bottomList", bottomList);
+//
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         request.getRequestDispatcher("order.jsp").forward(request, response);
     }

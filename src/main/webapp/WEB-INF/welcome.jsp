@@ -5,17 +5,17 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Du er logget ind!
+         Velkommen til Olsker Cupcakes
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Logged in area
+        Welcome
     </jsp:attribute>
 
     <jsp:body>
 
         <h2>Welcome ${sessionScope.user.username}, your role is ${sessionScope.user.role}</h2>
-        <p>Køb cupcakes!<a href="webapp/order"></a> Bestil</p>
+        <p>Køb cupcakes!<a class="btn btn-primary" name="Bestil" href="${pageContext.request.contextPath}/order.jsp"></a></p>
 
 <%--        <form method="post">--%>
 <%--            <form action="addtocart" method="post">--%>

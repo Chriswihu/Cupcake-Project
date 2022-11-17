@@ -5,18 +5,18 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Se vores muligheder!
+         Se vores muligheder:
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        Mulige Toppe og Bunde
     </jsp:attribute>
 
     <jsp:body>
 
         <h3>Se vores Toppe.</h3>
-        <form method="post">
-            <table class="table table-striped">
+        <form action="addtocart" method="get">
+            <table style="width: 50%" class="table table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -27,20 +27,20 @@
                 <c:forEach var="topItem" items="${sessionScope.topList}">
                     <tr>
                         <td>
-                                ${topItem.id}
+                            <c:out value="${topItem.id}"/>
                         </td>
                         <td>
-                                ${topItem.name}
+                            <c:out value="${topItem.name}"/>
                         </td>
                         <td>
-                                ${topItem.price}
+                            <c:out value="${topItem.price},-"/>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
 
             <h3>Se vores bunde.</h3>
-            <table class="table table-striped">
+            <table style="width: 50%" class="table table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -51,13 +51,13 @@
                 <c:forEach var="bottomItem" items="${sessionScope.bottomList}">
                     <tr>
                         <td>
-                                ${bottomItem.id}
+                            <c:out value="${bottomItem.id}"/>
                         </td>
                         <td>
-                                ${bottomItem.name}
+                            <c:out value="${bottomItem.name}"/>
                         </td>
                         <td>
-                                ${bottomItem.price}
+                            <c:out value="${bottomItem.price},-"/>
                         </td>
                     </tr>
                 </c:forEach>

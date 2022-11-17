@@ -5,7 +5,8 @@ public class Cupcake
     private Top top;
     private Bottom bottom;
     private int quantity;
-    private int totalPrice;
+    private double totalPrice;
+
 
     public Cupcake(Top top, Bottom bottom, int quantity) {
         this.top = top;
@@ -23,6 +24,12 @@ public class Cupcake
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public double getTotalPrice()
+    {
+        totalPrice = ((top.getPrice() + bottom.getPrice()) * quantity);
+        return totalPrice;
     }
 
     @Override

@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+|#LightGreen|Kunde|
+    start
+    :Åben Website;
+
+|#Orchid|Website|
+    repeat:database check;
+        fork
+            :Allerede Kunde?;
+            :gå til Login;
+        fork again
+            repeat:database check;
+            :Ny Kunde?;
+            :Indtast ønskede Login;
+            repeat while (Login Ledig?) is (no)
+        ->yes;
+        end fork
+    repeat while (Login True?) is (no)
+    ->yes;
+    :Logget ind;
+|Kunde|
+:Vælger Cupcake(s);
+:Trykker Bestil;
+|Website|
+:Modtager Ordre;
+:Laver Kvittering]
+    fork
+        |Kunde|
+        :Gemmer Kvittering]
+        :Tager ind til Butik;
+    fork again
+        |#OrangeRed|Butik|
+        :Bager Kager;
+        :Ordre]
+        :Pakker Ordre samme;
+    end fork
+:Afhent Ordre;
+:Kunde betaler;
+    stop
+@enduml

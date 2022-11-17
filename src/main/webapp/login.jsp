@@ -10,7 +10,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-            Login
+            Login page
     </jsp:attribute>
 
     <jsp:body>
@@ -18,7 +18,7 @@
         <h3>You can log in here</h3>
 
         <form action="login" method="post">
-            <label for="username">Username: </label>
+            <label for="username">Brugernavn: </label>
             <input type="text" id="username" name="username"/>
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
@@ -28,11 +28,11 @@
         <h3>Ny bruger? Opret dig her!</h3>
 
         <form action="createuser" method="post">
-            <label for="username">Username: </label>
+            <label for="newusername">Nyt Brugernavn: </label>
             <input type="text" id="newusername" name="newusername"/>
-            <label for="password">Password: </label>
+            <label for="newpassword">Nyt Password: </label>
             <input type="password" id="newpassword" name="newpassword"/>
-            <input type="submit"  value="Opret din Konto!"/>
+            <input type="submit"  value="Opret Konto!"/>
         </form>
 
     </jsp:body>

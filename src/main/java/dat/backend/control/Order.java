@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @WebServlet(name = "order", value = "/order")
 public class Order extends HttpServlet
 {
-    private static ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
+    private static final ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

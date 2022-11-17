@@ -5,17 +5,17 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Din personlige side
+         Velkommen ${sessionScope.user.username} du har rolen ${sessionScope.user.role}
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        User page
+        Admin Page
     </jsp:attribute>
 
     <jsp:body>
 
-        <h3>Her kan du se dine informationer!</h3>
-
+        <h3>Her kan du administrere for hele Olsker Cupcakes</h3>
+        <p>Indsæt penge, slet ordre og mere</p>
     </jsp:body>
 
 </t:pagetemplate>

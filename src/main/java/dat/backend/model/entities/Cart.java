@@ -7,6 +7,7 @@ public class Cart
 {
     private List<Cupcake> cupcakeList = new ArrayList<>();
 
+
     public Cart()
     {
 
@@ -15,6 +16,11 @@ public class Cart
     public void add(Cupcake cupcake)
     {
         cupcakeList.add(cupcake);
+    }
+
+    public double price(Cupcake cupcake)
+    {
+        return cupcake.getTotalPrice();
     }
 
     public int getNumberOfCupcakes()

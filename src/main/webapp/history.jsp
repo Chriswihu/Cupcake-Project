@@ -9,7 +9,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        History
     </jsp:attribute>
 
     <jsp:body>

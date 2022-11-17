@@ -21,14 +21,14 @@
 <body>
 <header>
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.jsp">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
             <img src="${pageContext.request.contextPath}/images/olskercupcakes.png" width="100%" class="img-fluid"/></a>
     </div>
     <div class="topnav">
         <a class="active" href="${pageContext.request.contextPath}/index.jsp">Hjem</a>
-        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/WEB-INF/cupcakes.jsp">Cupcakes</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/cupcakes.jsp">Cupcakes</a>
         <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/about.jsp">Om os</a>
-        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/order.jsp">Bestil Cupcakes!</a>
+        <a class="nav-item nav-link topnav" href="${pageContext.request.contextPath}/order.jsp">Bestil Cupcakes</a>
 
         <div class="topnav-right">
             <c:if test="${sessionScope.user == null }">
@@ -43,7 +43,7 @@
                 <%--                    <span class="glyphicon glyphicon-shopping-cart"></span>Indkøbskurv--%>
                 <%--                </button>--%>
                 <c:if test="${sessionScope.user.role == 'admin' }">
-                    <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/">Admin</a>
+                    <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/admin.jsp">Admin</a>
                 </c:if>
                 <a class="nav-item nav-link topnav-right" href="${pageContext.request.contextPath}/logout">Logout ${sessionScope.user.username}@mail.com</a>
 
@@ -110,8 +110,8 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
+            Østre Sigynsvej 21<br/>
+            3700 Bornholm
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/>

@@ -5,17 +5,17 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Lær mere om os og vores Cupcakes!
+         Lær mere om os og vores Cupcakes
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        About Page
     </jsp:attribute>
 
     <jsp:body>
 
-        <h3>Vi laver cupcakes!</h3>
-        <p>Cupcakes er lavet af dej!</p>
+        <h3>Vi laver cupcakes</h3>
+        <p>Cupcakes er lavet af dej</p>
     </jsp:body>
 
 </t:pagetemplate>

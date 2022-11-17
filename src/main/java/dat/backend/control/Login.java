@@ -64,12 +64,12 @@ public class Login extends HttpServlet
             session.setAttribute("topList", topList);
             session.setAttribute("bottomList", bottomList);
 
-            request.getRequestDispatcher("WEB-INF/cupcakes.jsp").forward(request, response);
+            request.getRequestDispatcher("order.jsp").forward(request, response);
         }
         catch (DatabaseException | SQLException e)
         {
             request.setAttribute("errormessage", e.getMessage());
-//            request.getRequestDispatcher("error.jsp").forward(request, response);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 }
